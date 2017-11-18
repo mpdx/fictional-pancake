@@ -3,23 +3,35 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static Builder planned()
+ * @method static Builder thisWeek()
+ */
 class Quit extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['employee'];
 
     public static function getLatest()
     {
-        return self::all()->sortByDesc(self::CREATED_AT)->first();
+        return self::query()
+            ->where(static::CREATED_AT, '<', Carbon::now()->startOfWeek())
+            ->latest()
+            ->first();
     }
 
-    public static function didSomeoneThisWeek()
+    public function scopePlanned(Builder $builder): Builder
     {
-        if (!$latest = self::getLatest()) {
-            return false;
-        }
+        return $builder->whereDate($this->getCreatedAtColumn(), '>', Carbon::now()->endOfWeek());
+    }
 
-        return (bool)$latest->created_at->gte(Carbon::now()->startOfWeek());
+    public function scopeThisWeek(Builder $builder): Builder
+    {
+        return $builder->whereBetween($this->getCreatedAtColumn(), [
+            Carbon::now()->startOfWeek(),
+            Carbon::now()->endOfWeek(),
+        ]);
     }
 }
