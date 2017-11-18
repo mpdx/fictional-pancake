@@ -1,0 +1,105 @@
+/*
+
+Landing Zero theme - A free landing page theme from BootstrapZero
+http://www.bootstrapzero.com
+
+*/
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+}
+
+body {
+    font-family: 'Helvetica Neue',Arial,sans-serif;
+    background-color: #b8a493;
+    margin:0;
+    paddong:0;
+}
+
+header {
+    position: relative;
+    min-height: 100%;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    background-color: #b8a493;
+    background-position: center;
+    background-image: url('../img/tumbleweed.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+header .header-content {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    max-width:100%;
+    width:100%;
+    text-align: center;
+    z-index: 2;
+}
+
+header .header-content .inner h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:1.75em;
+    text-shadow:1px 1px 1px #7B7979;
+}
+
+header .header-content .inner h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:10em !important;
+    color:crimson;
+    font-weight:bold;
+}
+
+header .header-content .inner h1.yes {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:10em !important;
+    color:green;
+    font-weight:bold;
+}
+
+header .header-content .inner p {
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+}
+
+header .header-content .inner h5 span { font-size:1.25em; display:inline-block; }
+
+header .header-content .inner h5 .troll { text-decoration: line-through }
+
+video {
+    min-width:100%;
+    min-height:100%;
+}
+
+.video-responsive {
+width:100%;
+height:100%;
+}
+
+.canvas,
+.video {
+position:absolute;
+top:0;
+left:50%;
+-webkit-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+min-height: 100%;
+min-width: 100%;
+background: #b8a493;
+z-index: 0;
+}
