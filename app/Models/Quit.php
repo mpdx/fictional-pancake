@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Quit extends Model
 {
-    protected $fillable = ['employee'];
+    protected $fillable = ['employee', 'created_at'];
 
     public static function getLatest()
     {
