@@ -18,7 +18,7 @@ class NewQuitterCommand extends Command
 
         $when = $this->ask('And when?', 'now');
 
-        if (!$this->confirm('Is that correct?')) {
+        if (!$this->confirm('Is that correct?', 'yes')) {
             return;
         }
 
