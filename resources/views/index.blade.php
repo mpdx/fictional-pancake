@@ -17,9 +17,12 @@
     <div class="header-content">
         <div class="inner">
             <h4>Czy w tym tygodniu ktoś złożył wypowiedzenie?</h4>
-            <h1 @if(isset($isQuit)) class="yes" @endIf>{{isset($isQuit) ? 'TAK' : 'NIE'}}</h1>
-            @if(isset($latestQuit))
-                <h5><span>{{$latestQuit->created_at->diffForHumans()}} ktoś złożył wypowiedzenie.</span></h5>
+            <h1 @if($isQuit) class="yes" @endif>{{ $isQuit ? 'TAK' : 'NIE' }}</h1>
+            @isset($latestQuit)
+                <h5><span>Ostatnie wypowiedzenie złożono {{ $latestQuit->created_at->diffForHumans() }}.</span></h5>
+            @endisset
+            @if($planned)
+                <h5><span>{{ trans_choice('stats.planned', $planned, ['total' => $planned]) }}</span></h5>
             @endif
         </div>
     </div>

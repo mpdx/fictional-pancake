@@ -8,16 +8,10 @@ class MainController extends Controller
 {
     public function index()
     {
-        $viewData = [];
+        $isQuit = Quit::thisWeek()->exists();
+        $latestQuit = Quit::getLatest();
+        $planned = Quit::planned()->count('id');
 
-        if ($isQuit = Quit::didSomeoneThisWeek()) {
-            $viewData = compact('isQuit');
-        }
-
-        if (!$isQuit) {
-            $viewData = ['latestQuit' => Quit::getLatest()];
-        }
-
-        return view('index', $viewData);
+        return view('index', compact('isQuit', 'latestQuit', 'planned'));
     }
 }

@@ -12,7 +12,7 @@ class NewQuitterCommand extends Command
 
     public function handle()
     {
-        $employee = $this->anticipate('Who quitted this time?',
+        $employee = $this->anticipate('Who quitted / wants to quit this time?',
             [$this->argument('employee')]
         );
 
