@@ -16,7 +16,7 @@
     </video>
     <div class="header-content">
         <div class="inner">
-            <h4>Czy w tym tygodniu ktoś złożył wypowiedzenie?</h4>
+            <h4>Czy ktoś złożył wypowiedzenie w tym tygodniu?</h4>
             <h1 @if($isQuit) class="yes" @endif>{{ $isQuit ? 'TAK' : 'NIE' }}</h1>
             @isset($latestQuit)
                 <h5><span>Ostatnie wypowiedzenie złożono {{ $latestQuit->created_at->diffForHumans() }}.</span></h5>
